@@ -2281,7 +2281,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
+            navigator.serviceWorker.register('/student-hubv2/service-worker.js')
                 .then((registration) => {
                     console.log('✅ Service Worker registered successfully:', registration.scope);
                     
