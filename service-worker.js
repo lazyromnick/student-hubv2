@@ -1,15 +1,23 @@
 // Smart Student Dashboard - Service Worker
 // Version 1.0.5 - Bug Fixes
 
-const CACHE_NAME = 'student-hub-v1.0.6';
-const BASE_PATH = '/student-hub'; // GitHub Pages subdirectory
+const CACHE_NAME = 'student-hub-v1.0.7';
+const BASE_PATH = '/student-hubv2'; // GitHub Pages subdirectory
 
 const urlsToCache = [
-  `${BASE_PATH}/`,
-  `${BASE_PATH}/index.html`,
-  `${BASE_PATH}/css/styles.css`,
-  `${BASE_PATH}/js/app.js`,
-  `${BASE_PATH}/manifest.json`,
+  './',
+  './index.html',
+  './manifest.json',
+  './css/styles.css',
+  './js/app.js',
+  './icons/icon-72x72.png',
+  './icons/icon-96x96.png',
+  './icons/icon-128x128.png',
+  './icons/icon-144x144.png',
+  './icons/icon-152x152.png',
+  './icons/icon-192x192.png',
+  './icons/icon-384x384.png',
+  './icons/icon-512x512.png',
   'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css',
   'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/fonts/bootstrap-icons.woff2'
 ];
