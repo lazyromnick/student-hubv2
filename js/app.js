@@ -509,6 +509,8 @@ const ProfileManager = {
     currentEditPhoto: null,
 
     init() {
+        this.loadProfile(); // Load profile data on init
+        
         document.getElementById('editProfileBtn').addEventListener('click', () => this.showEditModal());
         
         const dashboardModalClose = document.getElementById('dashboardModalClose');
@@ -2055,6 +2057,9 @@ const ProjectManager = {
                     <i class="bi bi-folder-x"></i>
                     <h3>No projects yet</h3>
                     <p>Start building and showcase your programming portfolio!</p>
+                    <button class="btn btn-primary btn-mobile-add" onclick="document.getElementById('addProjectBtn').click()">
+                        <i class="bi bi-plus-lg"></i> Add Project
+                    </button>
                 </div>
             `;
             return;
