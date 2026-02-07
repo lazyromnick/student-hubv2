@@ -633,15 +633,22 @@ const ProfileManager = {
     },
 
     saveProfile() {
+        const existingPhoto = AppState.student.photo;
+        
         AppState.student = {
             studentId: AppState.student.studentId,
             name: document.getElementById('editName').value.trim(),
             program: document.getElementById('editProgram').value.trim(),
             semester: document.getElementById('editSemester').value,
-            photo: this.currentEditPhoto
+            photo: this.currentEditPhoto !== undefined ? this.currentEditPhoto : existingPhoto
         };
         
-        AppState.save('student');
+        // Save to localStorage
+        StorageManager.set('studentProfile', AppState.student);
+        
+        // Reset currentEditPhoto
+        this.currentEditPhoto = undefined;
+        
         this.loadProfile();
         UIManager.closeModal('adminModal');
         UIManager.notify('Profile updated successfully!', 'success');
@@ -2281,7 +2288,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/student-hubv2/service-worker.js')
+            navigator.serviceWorker.register('/student-hub/service-worker.js')
                 .then((registration) => {
                     console.log('✅ Service Worker registered successfully:', registration.scope);
                     
